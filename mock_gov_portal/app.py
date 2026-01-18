@@ -36,14 +36,62 @@ def save_data(data):
 @portal_app.get("/", response_class=HTMLResponse)
 def home():
     return """
-    <html>
-    <head><title>Seva Setu | Welfare Portal</title><link rel="stylesheet" href="static/style.css"></head>
-    <body style="text-align:center; padding-top:50px;">
-        <h1>Seva Setu - Unified Welfare Portal</h1>
-        <div style="display:flex; justify-content:center; gap:20px; margin-top:30px;">
-            <a href="pm-kisan" style="padding:20px; border:2px solid green; border-radius:10px; text-decoration:none; color:black;">🚜 PM-Kisan</a>
-            <a href="scholarship" style="padding:20px; border:2px solid blue; border-radius:10px; text-decoration:none; color:black;">🎓 Scholarship</a>
-            <a href="hospital" style="padding:20px; border:2px solid red; border-radius:10px; text-decoration:none; color:black;">🏥 Hospital Booking</a>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Seva Setu | Unified Welfare Portal</title>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --primary: #6366f1;
+                --bg: #0f172a;
+                --card: rgba(255, 255, 255, 0.05);
+                --card-border: rgba(255, 255, 255, 0.1);
+            }
+            body { 
+                background: radial-gradient(circle at top right, #1e1b4b, #0f172a); 
+                color: white; font-family: 'Outfit', sans-serif;
+                margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;
+            }
+            .container { text-align: center; max-width: 900px; padding: 20px; }
+            h1 { font-size: 3rem; margin-bottom: 10px; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+            p { color: #94a3b8; font-size: 1.1rem; margin-bottom: 40px; }
+            .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; }
+            .card {
+                background: var(--card); border: 1px solid var(--card-border); padding: 40px 20px; border-radius: 24px;
+                text-decoration: none; color: white; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                backdrop-filter: blur(10px); display: flex; flex-direction: column; align-items: center; gap: 15px;
+            }
+            .card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.08); border-color: var(--primary); box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.3); }
+            .card i { font-size: 3.5rem; margin-bottom: 10px; }
+            .card h3 { margin: 0; font-size: 1.25rem; }
+            .card span { font-size: 0.85rem; color: #64748b; }
+            @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Unified Welfare Dashboard</h1>
+            <p>Empowering citizens through seamless AI-assisted service delivery.</p>
+            <div class="grid">
+                <a href="pm-kisan" class="card">
+                    <i>🚜</i>
+                    <h3>PM-Kisan</h3>
+                    <span>Farmer Support Scheme</span>
+                </a>
+                <a href="scholarship" class="card">
+                    <i>🎓</i>
+                    <h3>NSP Portal</h3>
+                    <span>National Scholarship</span>
+                </a>
+                <a href="hospital" class="card">
+                    <i>🏥</i>
+                    <h3>E-Booking</h3>
+                    <span>Hospital Appointment</span>
+                </a>
+            </div>
         </div>
     </body>
     </html>
