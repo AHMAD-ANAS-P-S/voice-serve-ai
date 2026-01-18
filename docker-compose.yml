@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  seva-setu-system:
+    build: .
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    env_file:
+      - .env
+    volumes:
+      - ./static:/app/static
+      - ./sessions.json:/app/sessions.json
+    restart: always
+
+  telegram-bot:
+    build: .
+    command: python scripts/telegram_bot.py
+    env_file:
+      - .env
+    depends_on:
+      - seva-setu-system
+    restart: always

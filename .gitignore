@@ -1,0 +1,33 @@
+# Environment
+.env
+venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Audio/Output
+static/audio_*.mp3
+static/input_*.mp3
+static/image_*.png
+audio_*.mp3
+*.wav
+sessions.json
+data.json
+mock_gov_portal/data.json
+
+# Large Binary / Tooling
+repo.git/
+*.jar
+*.bin
+*.h5
+*.pkl
+
+# OS
+.DS_Store
+Thumbs.db
