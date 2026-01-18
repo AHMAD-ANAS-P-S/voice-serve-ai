@@ -5,9 +5,9 @@ import re
 
 class LanguageVoiceAgent:
     def __init__(self):
-        # Small model is enough for hackathon + CPU
+        # 'tiny' model is required for memory-limited environments like Render (512MB)
         self.model = WhisperModel(
-            "small",
+            "tiny",
             device="cpu",
             compute_type="int8"
         )
